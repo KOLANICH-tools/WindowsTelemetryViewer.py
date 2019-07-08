@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=44", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile.setuptools[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.kaitai]
+outputDir = "WindowsTelemetryViewer/kaitai"
+
+[tool.kaitai.formats.windows_diagnostics_framework_rbs]
+path = "windows/windows_diagnostics_framework_rbs.ksy"
+
+[tool.kaitai.repo]
+git = "https://github.com/KOLANICH/kaitai_struct_formats.git"
+refspec = "windows_diagnostics_framework_rbs"
+update = true
+localPath = "kaitai_struct_formats"

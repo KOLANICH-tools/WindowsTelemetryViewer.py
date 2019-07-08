@@ -1,0 +1,7 @@
+/kaitai_struct_formats
+*.pyc
+*.pyo
+__pycache__
+/build
+/dist
+/*.egg-info
