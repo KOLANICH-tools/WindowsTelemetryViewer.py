@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "WindowsTelemetryViewer"
+authors = [{name = "KOLANICH"}]
+description = "A free open-source app to view Windows Diagnostics Framework .rbs files"
+readme = "README.md"
+keywords = ["windows", "telemetry", "espionage", "microsoft"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+]
+dependencies = [
+	"kaitaistruct @ git+https://github.com/kaitai_io/kaitai_struct_python_runtime.git",
+	"kaitai.compress",
+	"PyQt5",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+rbs_parser = ["rbs_parser @ git+https://github.com/bluec0re/windows-rbs-parser.git"]
+
+[project.urls]
+Homepage = "https://codeberg.org/KOLANICH-tools/WindowsTelemetryViewer.py"
+
+[project.scripts]
+WindowsTelemetryViewer = "WindowsTelemetryViewer.__main__:App.run"
+
+[tool.setuptools]
+zip-safe = true
+packages = ["WindowsTelemetryViewer", "WindowsTelemetryViewer.kaitai"]
+
+[tool.setuptools_scm]
+
+[tool.kaitai]
+outputDir = "WindowsTelemetryViewer/kaitai"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH/kaitai_struct_formats.git"."windows_diagnostics_framework_rbs"]
+update = true
+localPath = "kaitai_struct_formats"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH/kaitai_struct_formats.git"."windows_diagnostics_framework_rbs".formats.windows_diagnostics_framework_rbs]
+path = "windows/windows_diagnostics_framework_rbs.ksy"
