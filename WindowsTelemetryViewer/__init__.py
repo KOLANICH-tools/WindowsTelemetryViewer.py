@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from warnings import warn
 
 from PySide2.QtCore import QAbstractTableModel, QEvent, QObject, QSize, Qt
 from PySide2.QtGui import QIcon, QWindow
@@ -9,6 +10,8 @@ from PySide2.QtWidgets import QBoxLayout, QCheckBox, QDockWidget, QDoubleSpinBox
 from .IRBS import SelectedRBS
 from .PyQtJsonModel import QJsonTreeItem, QJsonModel
 from .TableWidget import TableWidget
+
+warn("We have moved from M$ GitHub to https://codeberg.org/KOLANICH-tools/WindowsTelemetryViewer.py , read why on https://codeberg.org/KOLANICH/Fuck-GuanTEEnomo .")
 
 try:
 	import locale
